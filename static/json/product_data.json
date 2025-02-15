@@ -1,0 +1,97 @@
+[    
+    {
+        "id": "cimss_true_color_sunz_rayleigh",
+        "name": "CIMSS True Color Corrected",
+        "header": "CIMSS True Color with corrections applied.",
+        "description": "The CIMSS True Color imagery is produced using a combination of visible wavelength channels from the ABI sensor on GOES satellites. This product applies multiple corrections, including Rayleigh scattering correction, solar zenith angle correction, and aerosol correction, to enhance visual clarity and improve color accuracy. The upsampling process increases the resolution, providing more detailed imagery for analysis. This corrected true color imagery allows for improved visualization of surface and atmospheric features such as clouds, land cover, smoke, and dust.",
+        "corrections": ["rayleigh_corrected", "sunz_corrected", "aerosol_corrected", "upsampled_resolution"],
+        "resolution": 500,
+        "mode": "RGB",
+        "operation_usage": "This corrected True Color imagery provides a near-natural color representation of the Earth's surface, making it useful for qualitative assessments of atmospheric and surface conditions. The applied corrections improve visibility by reducing atmospheric scattering and enhancing contrast. This product is particularly useful for identifying phenomena such as wildfires, smoke, haze, and vegetation patterns. Unlike standard true color images, the correction process reduces the influence of Rayleigh scattering, resulting in a clearer and more accurate representation of surface features.",
+        "operation_limitation": "<b>Daytime only:</b> This product relies on solar reflectance and is only available during daylight hours. No imagery is produced at night.<br /><b>Green band estimation:</b> Since ABI lacks a true green band, the green component is synthesized using a combination of red, blue, and near-infrared (Veggie) bands. While this method approximates natural color, it may introduce slight deviations in hue compared to sensors with a native green band.<br /><b>Potential artifacts:</b> Despite applied corrections, some residual artifacts may still be present due to variations in aerosol content and high solar zenith angles near sunrise and sunset.",
+        "band_numbers": [1,2,3],
+        "bands": {
+            "red": "0.64 &#181;m",
+            "green": "0.45 &#181;m * Red + 0.1 &#181;m * Veggie + 0.45 &#181;m * Blue",
+            "blue":"0.47 &#181;m"
+        }
+    },    
+    {
+        "id": "true_color_reproduction_corr",
+        "name": "JMA True Color Reproduction Corrected",
+        "header": "JMA True Color Reproduction with corrections applied.",
+        "description": "True Color Reproduction (TCR) technology enables the display of earth images taken from space in a way that is familiar to the human eye. The imagery consists of data from three visible bands (Band 1, 2 and 3). To reproduce colors as seen by the human eye, RGB signals observed by AHI are converted into CIE XYZ values and reconverted into RGB signals for output devices compliant with sRGB (an international standard for RGB color space) (Murata et al., 2018). In this process, as an alternative to the bi-spectral hybrid green method outlined by Miller et al. (2016), the green band is optimally adjusted using Band 2, 3 and 4.",
+        "corrections": ["rayleigh_corrected", "sunz_corrected", "aerosol_corrected", "upsampled_resolution"],
+        "resolution": 500,
+        "mode": "RGB",
+        "operation_usage": " 'True Color' imagery has characteristics similar to what one might view from space. Thus what you see approximates what you'd see from outer space. If a phenomenon has a particular or distinctive color, it will have a notable presence in a True Color Image. Examples of this include snow cover, blowing dust, smoke and vegetation. This product is generated from individual ABI bands only. Upstream pre-processing is not needed, nor are extra files. There is no direct correction for the effects of scattering.",
+        "operation_limitation": "<b>Daytime only:</b> This product uses reflected solar light. At night-time, no image is created. In AWIPS, you can substitute in whichever image or product you care to.<br /><b>There is no Green band on ABI:</b> True Color Imagery cannot be made easily from ABI because ABI lacks a Green band. Unlike AHI on Himawari-8/-9 , which has a band at 0.51 &#181;m in addition to Blue (0.47 &#181;m) and Red (0.64 &#181;m) bands, ABI has only the Blue and Red. Thus, a Green component has to be created. This is achieved using the Veggie (0.86 &#181;m) band that has enhanced reflectance over vegetation compared to visible imagery.",
+        "band_numbers": [1,2,3],
+        "bands": {
+            "red": "0.64 &#181;m",
+            "green": "0.45 &#181;m * Red + 0.1 &#181;m * Veggie + 0.45 &#181;m * Blue",
+            "blue":"0.47 &#181;m"
+        }
+    },
+    {
+        "id": "true_color",
+        "name": "JMA True Color",
+        "header": "JMA True Color imagery with no corrections applied.",
+        "description": "True Color Imagery gives an image that is approximately as you would see it from Outer Space. With ABI, the challenge of creating True Color arises from the the lack of a Green band. The CIMSS Natural True Color product, approximates the green by combining Blue (0.47 &#181;m), Red (0.64 &#181;m) and 'Veggie' (0.86 &#181;m) bands. The use of the Veggie band is important because it mimics the enhanced reflectivity present in the Green band.",
+        "corrections": ["upsampled_resolution"],
+        "operation_usage": "'True Color' imagery provides a realistic visual representation of the Earth, capturing natural features such as clouds, vegetation, and surface details with minimal processing. It highlights phenomena like snow cover, smoke, dust, and water clarity in their natural colors. This product is created directly from ABI bands and does not involve significant pre-processing or corrections like Rayleigh or aerosol scattering.",
+        "operation_limitation": "<b>Daytime only:</b> True Color imagery relies on reflected sunlight, making it unavailable during nighttime hours. Alternate products can be used for nighttime observations.<br /><b>No corrections for scattering:</b> This product does not account for Rayleigh scattering, solar zenith angle effects, or aerosols. As a result, atmospheric influences may slightly affect the visual accuracy of the imagery.<br /><b>Green band approximation:</b> Due to the lack of a Green band on ABI, the green component is derived using a combination of the Red, Blue, and Veggie bands.",
+        "resolution": 500,
+        "band_numbers": [1,2,3],
+        "mode": "RGB",
+        "bands": {
+            "red": "0.64 &#181;m",
+            "green": "0.45 &#181;m * Red + 0.1 &#181;m * Veggie + 0.45 &#181;m * Blue",
+            "blue": "0.47 &#181;m"
+        }
+    },
+    {
+        "id": "water_vapors2",
+        "name": "Differential Water Vapor",
+        "header": "Differential Water Vapor RGB (orange differential) composite.",
+        "description": "The Differential Water Vapor RGB highlights atmospheric water vapor distribution, aiding in the identification of moisture boundaries, troughs, ridges, and potential vorticity (PV) anomalies. It is essential for analyzing tropopause folds, rapid cyclogenesis, and stratospheric air intrusions linked to high-impact wind events. ts orange-differential color scheme provides sharp contrasts that enhance the visualization of key features, making it easier to interpret atmospheric motions and interactions at a glance.",
+        "corrections": ["none"],
+        "operation_usage": "<b>Identify depth of upperlevel moisture:</b> Use of the lower level and upper level water vapor bands means the depth of moist/dry layers can be assessed.<br /><b>Very dry air is bright orange:</b> the brightest orange represents deep layer dry air, important for assessing stratospheric influence on changes in storm intensity.<br /><b>Trough and Ridge Patterns:</b> features typically identified in water vapor imagery are easily identified with added dimension.",
+        "operation_limitation": "<b>Limb effects:</b> The use of longer wavelength channels results in more atmospheric absorption at large viewing angles. As a result, cooler brightness temperatures are measured. Limb cooling causes false teal and white coloring along the entire limb.<br /><b>Range of Colors:</b> the orange tones may make it hard to distinguish moisture layers at first glance. Take extra care when interpreting the product to determine the proper understanding.<br /><b>Cloud features are not distinct:</b> only mid and high clouds can be identified and low contrast limits the cloud details/features.",
+        "resolution": 1000,
+        "band_numbers": [8,10],
+        "mode": "WV",
+        "bands": {
+            "red": "7.3 - 6.2 &#181;m",
+            "green": "7.3 &#181;m",
+            "blue":"6.2 &#181;m"
+        },
+        "relates_to": {
+            "red": "vertical water vapor difference",
+            "green": "low level water vapor",
+            "blue": "upper level water vapor"
+        },
+        "contribution": {
+            "red": "dry upper levels",
+            "green": "moist lower levels",
+            "blue": "moist upper levels"
+        }
+    },
+    {
+        "id": "colorized_ir_clouds",
+        "name": "Clean Longwave IR",
+        "header": "Clean Longwave Infrared (IR) Imagery (AB Band 13)",
+        "description": "The 10.3 &#181;m 'clean' infrared window band is less sensitive than other infrared window bands to water vapor absorption, and therefore improves atmospheric moisture corrections, aids in cloud and other atmospheric feature identification/classification, estimation of cloudtop brightness temperature and cloud particle size, and surface property haracterization in derived products.",
+        "corrections": ["none"],
+        "operation_usage": "Continuous day/night cloud feature identification and classification, convective severe weather signatures, and hurricane intensity.<br /><b>Input into Baseline Products:</b> The 10.3 &#181;m imagery is used in the creation of legacy vertical temperature/moisture profiles, stability indices, total precipitable water, sea surface temperature, Hurricane Intensity Estimate (HIE), and snow cover products.<br /><b> Input into RGBs:</b> 10.3 &#181;m imagery is used in many RGB composites and band differences.",
+        "operation_limitation": "<b>Infrared vs surface air temperature:</b> 10.3 &#181;m brightness temperatures are not necessarily representative of 2-m shelter air temperatures, especially during the day, when the land can warm substantially compared to the near-surface air. Because there is some absorption of upwelling energy by atmospheric water vapor, the satellite-measured infrared brightness temperatures do not provide a truly accurate 'skin temperature.' A Baseline Product is available that provides the Land Surface Temperature.",
+        "resolution": 500,
+        "band_numbers": [13],
+        "mode": "IR",
+        "bands": {
+            "red": "Fill",
+            "green": "Fill",
+            "blue": "Fill"
+        }
+    }
+]

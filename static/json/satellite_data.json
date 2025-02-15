@@ -1,0 +1,982 @@
+[
+    {
+    "id": "GOES-16",
+    "bucket": "noaa-goes16",
+    "name": "GOES-EAST",
+    "instrument_id": "ABI",
+    "instrument_name": "Advanced Baseline Imager (ABI)",
+    "reader": "abi_l1b",
+    "composites": [
+        {
+        "id": "cimss_true_color_sunz_rayleigh",
+        "name": "CIMSS True Color Corrected",
+        "bands": [1, 2, 3]
+        },
+        {
+        "id": "true_color_reproduction_corr",
+        "name": "JMA True Color Reproduction Corrected",
+        "bands": [1, 2, 3]
+        },
+        {
+        "id": "true_color",
+        "name": "JMA True Color",
+        "bands": [1, 2, 3]
+        },
+        {
+        "id": "water_vapors2",
+        "name": "Differential Water Vapor",
+        "bands": [8, 10]
+        },
+        {
+        "id": "colorized_ir_clouds",
+        "name": "Clean Longwave IR",
+        "bands": [13]
+        }
+    ],
+    "bands": [
+        {
+        "id": 1,
+        "name": "Band 1",
+        "wave_length": "0.47 µm",
+        "description": "Blue",
+        "band_type": "Visible",
+        "resolution": 1000
+        },
+        {
+        "id": 2,
+        "name": "Band 2",
+        "wave_length": "0.64 µm",
+        "description": "Red",
+        "band_type": "Visible",
+        "resolution": 500
+        },
+        {
+        "id": 3,
+        "name": "Band 3",
+        "wave_length": "0.86 µm",
+        "description": "Veggie",
+        "band_type": "Near-Infrared",
+        "resolution": 1000
+        },
+        {
+        "id": 4,
+        "name": "Band 4",
+        "wave_length": "1.37 µm",
+        "description": "Cirrus",
+        "band_type": "Infrared",
+        "resolution": 2000
+        },
+        {
+        "id": 5,
+        "name": "Band 5",
+        "wave_length": "1.6 µm",
+        "description": "Snow/Ice",
+        "band_type": "Infrared",
+        "resolution": 1000
+        },
+        {
+        "id": 6,
+        "name": "Band 6",
+        "wave_length": "2.2 µm",
+        "description": "Cloud Particle Size",
+        "band_type": "Infrared",
+        "resolution": 2000
+        },
+        {
+        "id": 7,
+        "name": "Band 7",
+        "wave_length": "3.9 µm",
+        "description": "Shortwave Window",
+        "band_type": "Infrared",
+        "resolution": 2000
+        },
+        {
+        "id": 8,
+        "name": "Band 8",
+        "wave_length": "6.2 µm",
+        "description": "Upper-Level Water Vapor",
+        "band_type": "Infrared",
+        "resolution": 2000
+        },
+        {
+        "id": 9,
+        "name": "Band 9",
+        "wave_length": "6.9 µm",
+        "description": "Mid-Level Water Vapor",
+        "band_type": "Infrared",
+        "resolution": 2000
+        },
+        {
+        "id": 10,
+        "name": "Band 10",
+        "wave_length": "7.3 µm",
+        "description": "Low-Level Water Vapor",
+        "band_type": "Infrared",
+        "resolution": 2000
+        },
+        {
+        "id": 11,
+        "name": "Band 11",
+        "wave_length": "8.4 µm",
+        "description": "Cloud-Top Phase",
+        "band_type": "Infrared",
+        "resolution": 2000
+        },
+        {
+        "id": 12,
+        "name": "Band 12",
+        "wave_length": "9.6 µm",
+        "description": "Ozone",
+        "band_type": "Infrared",
+        "resolution": 2000
+        },
+        {
+        "id": 13,
+        "name": "Band 13",
+        "wave_length": "10.3 µm",
+        "description": "Clean Longwave Window",
+        "band_type": "Infrared",
+        "resolution": 2000
+        },
+        {
+        "id": 14,
+        "name": "Band 14",
+        "wave_length": "11.2 µm",
+        "description": "Longwave Window",
+        "band_type": "Infrared",
+        "resolution": 2000
+        },
+        {
+        "id": 15,
+        "name": "Band 15",
+        "wave_length": "12.3 µm",
+        "description": "Dirty Longwave Window",
+        "band_type": "Infrared",
+        "resolution": 2000
+        },
+        {
+        "id": 16,
+        "name": "Band 16",
+        "wave_length": "13.3 µm",
+        "description": "CO2 Longwave Infrared",
+        "band_type": "Infrared",
+        "resolution": 2000
+        }
+    ]
+    },
+    {
+        "id": "GOES-17",
+        "bucket": "noaa-goes17",
+        "name": "GOES-EAST",
+        "instrument_id": "ABI",
+        "instrument_name": "Advanced Baseline Imager (ABI)",
+        "reader": "abi_l1b",
+        "composites": [
+            {
+            "id": "cimss_true_color_sunz_rayleigh",
+            "name": "CIMSS True Color Corrected",
+            "bands": [1, 2, 3]
+            },
+            {
+            "id": "true_color_reproduction_corr",
+            "name": "JMA True Color Reproduction Corrected",
+            "bands": [1, 2, 3]
+            },
+            {
+            "id": "true_color",
+            "name": "JMA True Color",
+            "bands": [1, 2, 3]
+            },
+            {
+            "id": "water_vapors2",
+            "name": "Differential Water Vapor",
+            "bands": [8, 10]
+            },
+            {
+            "id": "colorized_ir_clouds",
+            "name": "Clean Longwave IR",
+            "bands": [13]
+            }
+        ],
+        "bands": [
+            {
+            "id": 1,
+            "name": "Band 1",
+            "wave_length": "0.47 µm",
+            "description": "Blue",
+            "band_type": "Visible",
+            "resolution": 1000
+            },
+            {
+            "id": 2,
+            "name": "Band 2",
+            "wave_length": "0.64 µm",
+            "description": "Red",
+            "band_type": "Visible",
+            "resolution": 500
+            },
+            {
+            "id": 3,
+            "name": "Band 3",
+            "wave_length": "0.86 µm",
+            "description": "Veggie",
+            "band_type": "Near-Infrared",
+            "resolution": 1000
+            },
+            {
+            "id": 4,
+            "name": "Band 4",
+            "wave_length": "1.37 µm",
+            "description": "Cirrus",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 5,
+            "name": "Band 5",
+            "wave_length": "1.6 µm",
+            "description": "Snow/Ice",
+            "band_type": "Infrared",
+            "resolution": 1000
+            },
+            {
+            "id": 6,
+            "name": "Band 6",
+            "wave_length": "2.2 µm",
+            "description": "Cloud Particle Size",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 7,
+            "name": "Band 7",
+            "wave_length": "3.9 µm",
+            "description": "Shortwave Window",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 8,
+            "name": "Band 8",
+            "wave_length": "6.2 µm",
+            "description": "Upper-Level Water Vapor",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 9,
+            "name": "Band 9",
+            "wave_length": "6.9 µm",
+            "description": "Mid-Level Water Vapor",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 10,
+            "name": "Band 10",
+            "wave_length": "7.3 µm",
+            "description": "Low-Level Water Vapor",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 11,
+            "name": "Band 11",
+            "wave_length": "8.4 µm",
+            "description": "Cloud-Top Phase",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 12,
+            "name": "Band 12",
+            "wave_length": "9.6 µm",
+            "description": "Ozone",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 13,
+            "name": "Band 13",
+            "wave_length": "10.3 µm",
+            "description": "Clean Longwave Window",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 14,
+            "name": "Band 14",
+            "wave_length": "11.2 µm",
+            "description": "Longwave Window",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 15,
+            "name": "Band 15",
+            "wave_length": "12.3 µm",
+            "description": "Dirty Longwave Window",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 16,
+            "name": "Band 16",
+            "wave_length": "13.3 µm",
+            "description": "CO2 Longwave Infrared",
+            "band_type": "Infrared",
+            "resolution": 2000
+            }
+        ]
+        },
+    {
+        "id": "GOES-18",
+        "bucket": "noaa-goes18",
+        "name": "GOES-WEST",
+        "instrument_id": "ABI",
+        "instrument_name": "Advanced Baseline Imager (ABI)",
+        "reader": "abi_l1b",
+        "composites": [
+            {
+            "id": "cimss_true_color_sunz_rayleigh",
+            "name": "CIMSS True Color Corrected",
+            "bands": [1, 2, 3]
+            },
+            {
+            "id": "true_color_reproduction_corr",
+            "name": "JMA True Color Reproduction Corrected",
+            "bands": [1, 2, 3]
+            },
+            {
+            "id": "true_color",
+            "name": "JMA True Color",
+            "bands": [1, 2, 3]
+            },
+            {
+            "id": "water_vapors2",
+            "name": "Differential Water Vapor",
+            "bands": [8, 10]
+            },
+            {
+            "id": "colorized_ir_clouds",
+            "name": "Clean Longwave IR",
+            "bands": [13]
+            }
+        ],    
+        "bands": [
+            {
+            "id": 1,
+            "name": "Band 1",
+            "wave_length": "0.47 µm",
+            "description": "Blue",
+            "band_type": "Visible",
+            "resolution": 1000
+            },
+            {
+            "id": 2,
+            "name": "Band 2",
+            "wave_length": "0.64 µm",
+            "description": "Red",
+            "band_type": "Visible",
+            "resolution": 500
+            },
+            {
+            "id": 3,
+            "name": "Band 3",
+            "wave_length": "0.86 µm",
+            "description": "Veggie",
+            "band_type": "Near-Infrared",
+            "resolution": 1000
+            },
+            {
+            "id": 4,
+            "name": "Band 4",
+            "wave_length": "1.37 µm",
+            "description": "Cirrus",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 5,
+            "name": "Band 5",
+            "wave_length": "1.6 µm",
+            "description": "Snow/Ice",
+            "band_type": "Infrared",
+            "resolution": 1000
+            },
+            {
+            "id": 6,
+            "name": "Band 6",
+            "wave_length": "2.2 µm",
+            "description": "Cloud Particle Size",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 7,
+            "name": "Band 7",
+            "wave_length": "3.9 µm",
+            "description": "Shortwave Window",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 8,
+            "name": "Band 8",
+            "wave_length": "6.2 µm",
+            "description": "Upper-Level Water Vapor",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 9,
+            "name": "Band 9",
+            "wave_length": "6.9 µm",
+            "description": "Mid-Level Water Vapor",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 10,
+            "name": "Band 10",
+            "wave_length": "7.3 µm",
+            "description": "Low-Level Water Vapor",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 11,
+            "name": "Band 11",
+            "wave_length": "8.4 µm",
+            "description": "Cloud-Top Phase",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 12,
+            "name": "Band 12",
+            "wave_length": "9.6 µm",
+            "description": "Ozone",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 13,
+            "name": "Band 13",
+            "wave_length": "10.3 µm",
+            "description": "Clean Longwave Window",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 14,
+            "name": "Band 14",
+            "wave_length": "11.2 µm",
+            "description": "Longwave Window",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 15,
+            "name": "Band 15",
+            "wave_length": "12.3 µm",
+            "description": "Dirty Longwave Window",
+            "band_type": "Infrared",
+            "resolution": 2000
+            },
+            {
+            "id": 16,
+            "name": "Band 16",
+            "wave_length": "13.3 µm",
+            "description": "CO2 Longwave Infrared",
+            "band_type": "Infrared",
+            "resolution": 2000
+            }
+        ]
+        },
+        {
+            "id": "GOES-19",
+            "bucket": "noaa-goes19",
+            "name": "GOES-EAST (EXP)",
+            "instrument_id": "ABI",
+            "instrument_name": "Advanced Baseline Imager (ABI)",
+            "reader": "abi_l1b",
+            "composites": [
+                {
+                "id": "cimss_true_color_sunz_rayleigh",
+                "name": "CIMSS True Color Corrected",
+                "bands": [1, 2, 3]
+                },
+                {
+                "id": "true_color_reproduction_corr",
+                "name": "JMA True Color Reproduction Corrected",
+                "bands": [1, 2, 3]
+                },
+                {
+                "id": "true_color",
+                "name": "JMA True Color",
+                "bands": [1, 2, 3]
+                },
+                {
+                "id": "water_vapors2",
+                "name": "Differential Water Vapor",
+                "bands": [8, 10]
+                },
+                {
+                "id": "colorized_ir_clouds",
+                "name": "Clean Longwave IR",
+                "bands": [13]
+                }
+            ],        
+            "bands": [
+                {
+                "id": 1,
+                "name": "Band 1",
+                "wave_length": "0.47 µm",
+                "description": "Blue",
+                "band_type": "Visible",
+                "resolution": 1000
+                },
+                {
+                "id": 2,
+                "name": "Band 2",
+                "wave_length": "0.64 µm",
+                "description": "Red",
+                "band_type": "Visible",
+                "resolution": 500
+                },
+                {
+                "id": 3,
+                "name": "Band 3",
+                "wave_length": "0.86 µm",
+                "description": "Veggie",
+                "band_type": "Near-Infrared",
+                "resolution": 1000
+                },
+                {
+                "id": 4,
+                "name": "Band 4",
+                "wave_length": "1.37 µm",
+                "description": "Cirrus",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 5,
+                "name": "Band 5",
+                "wave_length": "1.6 µm",
+                "description": "Snow/Ice",
+                "band_type": "Infrared",
+                "resolution": 1000
+                },
+                {
+                "id": 6,
+                "name": "Band 6",
+                "wave_length": "2.2 µm",
+                "description": "Cloud Particle Size",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 7,
+                "name": "Band 7",
+                "wave_length": "3.9 µm",
+                "description": "Shortwave Window",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 8,
+                "name": "Band 8",
+                "wave_length": "6.2 µm",
+                "description": "Upper-Level Water Vapor",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 9,
+                "name": "Band 9",
+                "wave_length": "6.9 µm",
+                "description": "Mid-Level Water Vapor",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 10,
+                "name": "Band 10",
+                "wave_length": "7.3 µm",
+                "description": "Low-Level Water Vapor",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 11,
+                "name": "Band 11",
+                "wave_length": "8.4 µm",
+                "description": "Cloud-Top Phase",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 12,
+                "name": "Band 12",
+                "wave_length": "9.6 µm",
+                "description": "Ozone",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 13,
+                "name": "Band 13",
+                "wave_length": "10.3 µm",
+                "description": "Clean Longwave Window",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 14,
+                "name": "Band 14",
+                "wave_length": "11.2 µm",
+                "description": "Longwave Window",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 15,
+                "name": "Band 15",
+                "wave_length": "12.3 µm",
+                "description": "Dirty Longwave Window",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 16,
+                "name": "Band 16",
+                "wave_length": "13.3 µm",
+                "description": "CO2 Longwave Infrared",
+                "band_type": "Infrared",
+                "resolution": 2000
+                }
+            ]
+            },
+        {
+            "id": "Himawari-8",
+            "bucket": "noaa-himawari8",
+            "name": "Himawari-8",
+            "instrument_id": "AHI",
+            "instrument_name": "Advanced Baseline Imager (ABI)",
+            "reader": "ahi_hsd",
+            "composites": [
+                {
+                "id": "true_color_reproduction_corr",
+                "name": "JMA True Color Reproduction Corrected",
+                "bands": [1, 2, 3, 4]
+                },
+                {
+                "id": "true_color",
+                "name": "JMA True Color",
+                "bands": [1, 2, 3]
+                },
+                {
+                "id": "water_vapors2",
+                "name": "Differential Water Vapor",
+                "bands": [8, 10]
+                },
+                {
+                "id": "colorized_ir_clouds",
+                "name": "Clean Longwave IR",
+                "bands": [13]
+                }
+            ],        
+            "bands": [
+                {
+                "id": 1,
+                "name": "Band 1",
+                "wave_length": "0.47 µm",
+                "description": "Blue",
+                "band_type": "Visible",
+                "resolution": 1000
+                },
+                {
+                "id": 2,
+                "name": "Band 2",
+                "wave_length": "0.64 µm",
+                "description": "Red",
+                "band_type": "Visible",
+                "resolution": 500
+                },
+                {
+                "id": 3,
+                "name": "Band 3",
+                "wave_length": "0.86 µm",
+                "description": "Veggie",
+                "band_type": "Near-Infrared",
+                "resolution": 1000
+                },
+                {
+                "id": 4,
+                "name": "Band 4",
+                "wave_length": "1.37 µm",
+                "description": "Cirrus",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 5,
+                "name": "Band 5",
+                "wave_length": "1.6 µm",
+                "description": "Snow/Ice",
+                "band_type": "Infrared",
+                "resolution": 1000
+                },
+                {
+                "id": 6,
+                "name": "Band 6",
+                "wave_length": "2.2 µm",
+                "description": "Cloud Particle Size",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 7,
+                "name": "Band 7",
+                "wave_length": "3.9 µm",
+                "description": "Shortwave Window",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 8,
+                "name": "Band 8",
+                "wave_length": "6.2 µm",
+                "description": "Upper-Level Water Vapor",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 9,
+                "name": "Band 9",
+                "wave_length": "6.9 µm",
+                "description": "Mid-Level Water Vapor",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 10,
+                "name": "Band 10",
+                "wave_length": "7.3 µm",
+                "description": "Low-Level Water Vapor",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 11,
+                "name": "Band 11",
+                "wave_length": "8.4 µm",
+                "description": "Cloud-Top Phase",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 12,
+                "name": "Band 12",
+                "wave_length": "9.6 µm",
+                "description": "Ozone",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 13,
+                "name": "Band 13",
+                "wave_length": "10.3 µm",
+                "description": "Clean Longwave Window",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 14,
+                "name": "Band 14",
+                "wave_length": "11.2 µm",
+                "description": "Longwave Window",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 15,
+                "name": "Band 15",
+                "wave_length": "12.3 µm",
+                "description": "Dirty Longwave Window",
+                "band_type": "Infrared",
+                "resolution": 2000
+                },
+                {
+                "id": 16,
+                "name": "Band 16",
+                "wave_length": "13.3 µm",
+                "description": "CO2 Longwave Infrared",
+                "band_type": "Infrared",
+                "resolution": 2000
+                }
+            ]
+            },
+            {
+                "id": "Himawari-9",
+                "bucket": "noaa-himawari9",
+                "name": "Himawari-9",
+                "instrument_id": "AHI",
+                "instrument_name": "Advanced Baseline Imager (ABI)",
+                "reader": "ahi_hsd",
+                "composites": [
+                    {
+                    "id": "true_color_reproduction_corr",
+                    "name": "JMA True Color Reproduction Corrected",
+                    "bands": [1, 2, 3, 4]
+                    },
+                    {
+                    "id": "true_color",
+                    "name": "JMA True Color",
+                    "bands": [1, 2, 3]
+                    },
+                    {
+                    "id": "water_vapors2",
+                    "name": "Differential Water Vapor",
+                    "bands": [8, 10]
+                    },
+                    {
+                    "id": "colorized_ir_clouds",
+                    "name": "Clean Longwave IR",
+                    "bands": [13]
+                    }
+                ],        
+                "bands": [
+                    {
+                    "id": 1,
+                    "name": "Band 1",
+                    "wave_length": "0.47 µm",
+                    "description": "Blue",
+                    "band_type": "Visible",
+                    "resolution": 1000
+                    },
+                    {
+                    "id": 2,
+                    "name": "Band 2",
+                    "wave_length": "0.64 µm",
+                    "description": "Red",
+                    "band_type": "Visible",
+                    "resolution": 500
+                    },
+                    {
+                    "id": 3,
+                    "name": "Band 3",
+                    "wave_length": "0.86 µm",
+                    "description": "Veggie",
+                    "band_type": "Near-Infrared",
+                    "resolution": 1000
+                    },
+                    {
+                    "id": 4,
+                    "name": "Band 4",
+                    "wave_length": "1.37 µm",
+                    "description": "Cirrus",
+                    "band_type": "Infrared",
+                    "resolution": 2000
+                    },
+                    {
+                    "id": 5,
+                    "name": "Band 5",
+                    "wave_length": "1.6 µm",
+                    "description": "Snow/Ice",
+                    "band_type": "Infrared",
+                    "resolution": 1000
+                    },
+                    {
+                    "id": 6,
+                    "name": "Band 6",
+                    "wave_length": "2.2 µm",
+                    "description": "Cloud Particle Size",
+                    "band_type": "Infrared",
+                    "resolution": 2000
+                    },
+                    {
+                    "id": 7,
+                    "name": "Band 7",
+                    "wave_length": "3.9 µm",
+                    "description": "Shortwave Window",
+                    "band_type": "Infrared",
+                    "resolution": 2000
+                    },
+                    {
+                    "id": 8,
+                    "name": "Band 8",
+                    "wave_length": "6.2 µm",
+                    "description": "Upper-Level Water Vapor",
+                    "band_type": "Infrared",
+                    "resolution": 2000
+                    },
+                    {
+                    "id": 9,
+                    "name": "Band 9",
+                    "wave_length": "6.9 µm",
+                    "description": "Mid-Level Water Vapor",
+                    "band_type": "Infrared",
+                    "resolution": 2000
+                    },
+                    {
+                    "id": 10,
+                    "name": "Band 10",
+                    "wave_length": "7.3 µm",
+                    "description": "Low-Level Water Vapor",
+                    "band_type": "Infrared",
+                    "resolution": 2000
+                    },
+                    {
+                    "id": 11,
+                    "name": "Band 11",
+                    "wave_length": "8.4 µm",
+                    "description": "Cloud-Top Phase",
+                    "band_type": "Infrared",
+                    "resolution": 2000
+                    },
+                    {
+                    "id": 12,
+                    "name": "Band 12",
+                    "wave_length": "9.6 µm",
+                    "description": "Ozone",
+                    "band_type": "Infrared",
+                    "resolution": 2000
+                    },
+                    {
+                    "id": 13,
+                    "name": "Band 13",
+                    "wave_length": "10.3 µm",
+                    "description": "Clean Longwave Window",
+                    "band_type": "Infrared",
+                    "resolution": 2000
+                    },
+                    {
+                    "id": 14,
+                    "name": "Band 14",
+                    "wave_length": "11.2 µm",
+                    "description": "Longwave Window",
+                    "band_type": "Infrared",
+                    "resolution": 2000
+                    },
+                    {
+                    "id": 15,
+                    "name": "Band 15",
+                    "wave_length": "12.3 µm",
+                    "description": "Dirty Longwave Window",
+                    "band_type": "Infrared",
+                    "resolution": 2000
+                    },
+                    {
+                    "id": 16,
+                    "name": "Band 16",
+                    "wave_length": "13.3 µm",
+                    "description": "CO2 Longwave Infrared",
+                    "band_type": "Infrared",
+                    "resolution": 2000
+                    }
+                ]
+                }
+]

@@ -1,0 +1,59 @@
+[
+    {
+        "id": "cea",
+        "name": "Equal Area Cylindrical",
+        "classification": "Cylindrical",
+        "header": "CEA Projection: Equal Area Cylindrical",
+        "description": "The equidistant cylindrical projection is also known as equirectangular, simple cylindrical, rectangular, or when the standard parallel is the equator, plate carrée map projection. A grid of parallels and meridians forms equal rectangles from east to west and from pole to pole. It is one of the simplest cylindrical projections and therefore its usage was more common in the past.",
+        "distortion": "The projection is equidistant along any meridian and both standard parallels. Shape, scale, and area distortion increase with the distance from the standard parallels. North, south, east, and west directions are always accurate, but general directions are distorted, except locally along the standard parallels. Distortion values are symmetric across the equator and the central meridian.",
+        "bp1": "Has a cylindrical projection surface",
+        "bp2": "Has a normal aspect",
+        "bp3": "Is an equal-area projection (any two areas on the globe that are the same size will be the same size on the map)"
+
+    },
+    {
+        "id": "geos",
+        "name": "Geostationary",
+        "classification": "Azimuthal",
+        "header": "GEOS Projection: Geostationary Satellite Scanning",
+        "description": "This projection is used by geostationary satellites that are returning data located by the satellites' scanning angles. Two variants exist based on the main scanning direction of the viewing instrument onboard. It is used by Geostationary Operational Environmental Satellite R (GOES-R) series and Meteosat series of geostationary meteorological satellites.",
+        "distortion": "The geostationary satellite projection is neither conformal nor equal-area. It generally distorts shapes, areas, distances, directions, and angles. Only the center of the projection is free of distortion when scanning angles are multiplied with the satellite's height. Distortion increases away from the center. Extreme distortion exists near the edge of the map outline.",
+        "bp1": "Uses a geostationary satellite's scanning angles to project data.",
+        "bp2": "Distortion-free only at the center of the projection.",
+        "bp3": "Designed for geostationary meteorological satellite data such as GOES-R and Meteosat."
+    },
+    {
+        "id": "laea",
+        "name": "Lambert Azimuthal Equal Area",
+        "classification": "Azimuthal",
+        "header": "LAEA Projection: Lambert Azimuthal Equal Area",
+        "description": "The Lambert azimuthal equal-area projection maintains land features at their true relative sizes while simultaneously maintaining a true sense of direction from the center. The world is projected onto a flat surface from any point on the globe. Although all aspects are possible (equatorial, polar, and oblique), the one used most commonly is the polar aspect. This projection is best suited for individual land masses that are symmetrically proportioned, either round or square.",
+        "distortion": "Lambert azimuthal equal-area is an equal-area (equivalent) projection. Shapes, directions, angles, and distances are generally distorted. Scale and directions are true only at the center of the projection. The scale decreases with the distance from the center along the radii and increases from the center perpendicularly to the radii, resulting in small shapes compressed radially from the center and elongated perpendicularly. The general pattern of distortion is radial.",
+        "bp1": "Projects the globe onto a flat surface from a specific point.",
+        "bp2": "Maintains true relative sizes of land features.",
+        "bp3": "Best suited for polar and symmetrically proportioned areas."
+    },
+    {
+        "id": "lcc",
+        "name": "Lambert Conformal Conic",
+        "classification": "Conic",
+        "header": "LCC Projection: Lambert Conformal Conic",
+        "description": "The Lambert conformal conic map projection is typically based on two standard parallels, but it can also be defined with a single standard parallel and a scale factor. It is best suited for conformal mapping of land masses extending in an east-to-west orientation at mid-latitudes. This projection was rarely used before the First World War but is now commonly used for official topographic mapping around the world. The state plane coordinate system uses it for all zones that have a predominant east-west extent.",
+        "distortion": "Lambert conformal conic is a conformal map projection. Directions, angles, and shapes are maintained at infinitesimal scale. Distances are accurate only along the standard parallels. Scale, area, and distances are increasingly distorted away from the standard parallels, but they are the same along any given parallel and symmetric across the central meridian. The projection is not conformal at the poles.",
+        "bp1": "Best suited for land masses with east-to-west extent at mid-latitudes.",
+        "bp2": "Based on one or two standard parallels for accurate scaling.",
+        "bp3": "Maintains conformality by preserving angles and shapes at infinitesimal scales."
+
+    },
+    {
+        "id": "tmerc",
+        "name": "Transverse Mercator",
+        "classification": "Transverse and Oblique Cylindrical",
+        "header": "TMERC Projection: Transverse Mercator",
+        "description": "The transverse Mercator projection, also known as the Gauss-Krüger projection, is similar to Mercator except that the cylinder touches the sphere or ellipsoid along a meridian instead of the equator. The result is a conformal projection that does not maintain true directions. The central meridian is placed in the center of the region of interest. This centering minimizes distortion of all properties in that region. This projection is best suited for north-south oriented areas. The Universal Transverse Mercator (UTM) coordinate system and Gauss-Krüger coordinate systems are based on the transverse Mercator projection and the State Plane Coordinate System uses it for all north-south zones. Various countries use this projection for their topographic maps and large-scale coordinate systems.",
+        "distortion": "Transverse Mercator is a conformal map projection. It generally does not maintain true directions, but angles and shapes are maintained at infinitesimal scale. Distances are accurate along the central meridian if the scale factor is 1.0. If it is less than 1.0, there are two approximately straight lines with accurate scale equidistant from and on each side of the central meridian. Area, distance, and scale distortions rapidly grow with distance from the central meridian or the two standard lines as specified above. Deformations are enormous at the left and right map edges. Distortion values are symmetric across the equator and the central meridian.",
+        "bp1": "Uses a cylinder tangent to a meridian instead of the equator.",
+        "bp2": "Is a conformal projection maintaining angles and shapes at infinitesimal scales.",
+        "bp3": "Commonly used in large-scale maps and the Universal Transverse Mercator system."
+    }
+]
