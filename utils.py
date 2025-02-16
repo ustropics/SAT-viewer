@@ -27,19 +27,24 @@ def create_dirs(terminal):
 
 
 def create_movie_file(terminal):
-    """Creates a movie from the images in the img_arr."""
+    """Creates a movie from the images in the img_arr and returns the file path."""
     log_to_terminal(terminal, console_msg.vid_create_msg)
+    
+    if not img_arr:
+        log_to_terminal(terminal, "No images available to create a video.")
+        return None  # No images to process
+    
     file_str = ", ".join(map(str, img_arr))
     hash_obj = hashlib.md5(file_str.encode()).hexdigest()
-    file_name = f'{vid_dir}/{hash_obj}.webp'
-    file_name2 = f'{vid_dir}/{hash_obj}.mp4'
+    file_name = f'{vid_dir}/{hash_obj}.mp4'
 
     if os.path.exists(file_name):
-        # log_to_terminal(terminal, console_msg.vid_file_exists(file_name=file_name))
-        return
+        log_to_terminal(terminal, f"Video already exists: {file_name}")
     else:
         frames = [Image.open(img_path) for img_path in img_arr]
-        imageio.mimsave(file_name2, frames, 'MP4', fps=2)
+        imageio.mimsave(file_name, frames, 'MP4', fps=2)
+
+    return file_name  # Return the video file path
 
 
 def create_animation_file(terminal):
@@ -47,12 +52,14 @@ def create_animation_file(terminal):
     log_to_terminal(terminal, console_msg.vid_create_msg)
     file_str = ", ".join(map(str, img_arr))
     hash_obj = hashlib.md5(file_str.encode()).hexdigest()
-    file_name = f'{vid_dir}/{hash_obj}.mp4'
+    file_name = f'{gif_dir}/{hash_obj}.webp'
 
     if os.path.exists(file_name):
         # log_to_terminal(terminal, console_msg.vid_file_exists(file_name=file_name))
-        return
+        print("file exists", file_name)
+        return file_name
     else:
+        print("making file", file_name)
         frames = [Image.open(img_path) for img_path in img_arr]
         frames[0].save(
             file_name,
@@ -63,6 +70,8 @@ def create_animation_file(terminal):
         )
 
     log_to_terminal(terminal, console_msg.export_vid_success.format(file_name=file_name))
+
+    return file_name  # Return the video file path
 
 
 
