@@ -4,6 +4,7 @@ import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 import hashlib
 import imageio
+import io
 import json
 import matplotlib.pyplot as plt
 import numpy as np

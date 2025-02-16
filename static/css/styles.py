@@ -1,3 +1,4 @@
+# Define the default theme settings for the app
 theme_settings = {
     'primary_color': '#782f40',
     'secondary_color': '#CEB888',
@@ -23,13 +24,15 @@ theme_settings = {
     'switch_width': 35
 }
 
-
+# Define the CSS styles for the app
 css = f"""
-
 p {{
-    color: {theme_settings['light_font']} !important;
     margin-block-start: 0em !important;
     margin-block-end: 0em !important;
+}}
+
+a {{
+    color: {theme_settings['secondary_color']} !important;
 }}
 
 h1,h2,h3 {{
@@ -131,6 +134,10 @@ select option:checked
     cursor: pointer;
 }}
 
+.bk-btn a {{
+    color: {theme_settings['dark_font']} !important;
+}}
+
 .bk-input {{
     background-color: {theme_settings['secondary_bg_color']} !important;
     color: {theme_settings['light_font']} !important;
@@ -159,6 +166,7 @@ select option:checked
     }}
 """
 
+# Define the terminal options for the app
 terminal_options = {
     "theme": {
         "background": '#343c43',

@@ -120,9 +120,15 @@ def export_json_file(terminal):
     log_to_terminal(terminal, console_msg.export_json)
     processed_dict = convert_datetime(main_dict)
     file_name = f"{json_dir}/settings_export.json"
+    
+    # Save the file
     with open(file_name, 'w') as file:
         json.dump(processed_dict, file, indent=4)
+    
     log_to_terminal(terminal, console_msg.export_json_success.format(file_name=file_name))
+    
+    # Create a downloadable file link
+    return file_name
 
 def backup_json_file(terminal):
     log_to_terminal(terminal, console_msg.export_json)
@@ -177,11 +183,31 @@ def import_json_file(sidebar, loc_data, prd_data, prj_data, sat_data):
     sidebar[1][1][6][0].value = data['border_color']
     sidebar[1][1][6][1].value  = data['border_width']
 
+def update_main_frame(event, main_placeholder, sidebar, loc_data, prd_data, prj_data, sat_data):
+    terminal = sidebar[0][1]
+    com_dropdown = sidebar[1][0][2]
+    loc_dropdown = sidebar[1][0][3]
+    sat_dropdown = sidebar[1][1][0]
+    prj_dropdown = sidebar[1][1][2]
 
+    if event.obj is com_dropdown:
+        from components.info_comp import create_composite_info
+        composite_page = create_composite_info(event.new, loc_data, prd_data, sat_data, sidebar)
+        main_placeholder.update(composite_page)
+        log_to_terminal(terminal, f"{event.new} composite selected...")
 
+    elif event.obj is prj_dropdown:
+        from components.info_proj import create_projection_info
+        projection_page = create_projection_info(event.new, prj_data)
+        main_placeholder.update(projection_page)
+        log_to_terminal(terminal, f"{event.new} projection selected...")
 
-def test_print():
-    """Test print the main_dict."""
-    for item in main_dict:
-        print(item, main_dict[item])
+    elif event.obj is loc_dropdown:
+        log_to_terminal(terminal, f"{event.new} location selected...")
+
+    elif event.obj is sat_dropdown:
+        log_to_terminal(terminal, f"{event.new} satellite selected...")
+        composites = get_composites(sat_data, event.new)
+        com_dropdown.options = composites
+        com_dropdown.value = composites[0]
 

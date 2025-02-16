@@ -20,11 +20,12 @@ def create_sidebar(loc_data, prd_data, prj_data, sat_data):
     # Utility buttons
     export_video_btn = pn.widgets.Button(name='Create Video', button_type='primary', button_style='outline', width=340)
     export_anim_btn = pn.widgets.Button(name='Create Animation', button_type='primary', button_style='outline', width=340)
-    export_json_btn = pn.widgets.Button(name='Export JSON', button_type='success', button_style='outline', width=340)
+    export_json_btn = pn.widgets.Button(name='Create JSON', button_type='success', button_style='outline', width=340)
     import_json_btn = pn.widgets.Button(name='Import JSON', button_type='primary', button_style='outline', width=340)
     import_json_file = pn.widgets.FileInput(name='Import JSON', accept='.json', width=340)
-    
 
+    download_json_btn = pn.pane.Placeholder('')
+    
 
     # Terminal output widget
     terminal = pn.widgets.Terminal(
@@ -140,7 +141,7 @@ def create_sidebar(loc_data, prd_data, prj_data, sat_data):
     # Create the main and projection columns
     main_col = pn.Column(start_dt, end_dt, composite_dropdown, location_dropdown)
     proj_col = pn.Column(satellite_dropdown, domain_dropdown, projection_dropdown, lat_container, lon_container, switch_container, border_container)
-    expo_col = pn.Column(export_video_btn, export_anim_btn, json_label, import_json_file, import_json_btn, export_json_btn)
+    expo_col = pn.Column(export_video_btn, export_anim_btn, json_label, import_json_file, import_json_btn, export_json_btn, download_json_btn)
 
     # Create the tab container
     tab_container = pn.Tabs(('Main',main_col), ('Customize',proj_col), ('Utilities',''), ('Import/Export',expo_col), dynamic=True)
