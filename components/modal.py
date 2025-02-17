@@ -1,5 +1,6 @@
 from imports import *
 from static.css.styles import *
+from config import *
 
 from data_prc import create_main_dict
 from utils import export_json_file, create_movie_file, create_animation_file
@@ -42,9 +43,9 @@ def json_btn_fnc(event, sidebar, loc_data, prd_data, prj_data, sat_data, termina
     modal_window.open = True
 
 def movie_btn_fnc(event, terminal):
-    print("event")
     """Handles the video creation and updates the modal window with a download button."""
-    file_name = create_movie_file(terminal)
+    file = create_movie_file(terminal)
+    file_name = os.path.basename(str(file))
     
     if not file_name:
         text = pn.pane.Markdown(
@@ -54,15 +55,15 @@ def movie_btn_fnc(event, terminal):
         container = pn.Column(text)
     else:
         download_button = pn.widgets.FileDownload(
-            filename="satviewer_video.mp4",
-            file=file_name,
+            filename=file_name,
+            file=file,
             button_type="primary",
             label="Download Video File",
             width=340,
         )
 
         text = pn.pane.Markdown(
-            f"Video successfully created as: </br>**satviewer_video.mp4**.",
+            f"Video successfully created as: </br>**{file_name}**.",
             styles={'font-size': "14px", 'color': theme_settings['dark_font']}
         )
 
@@ -72,6 +73,39 @@ def movie_btn_fnc(event, terminal):
     download_modal.clear()
     download_modal.append(container)
     modal_window.open = True
+
+def animation_btn_fnc(event, terminal):
+    """Handles the video creation and updates the modal window with a download button."""
+    file = create_animation_file(terminal)
+    file_name = os.path.basename(str(file))
+
+    
+    if not file_name:
+        text = pn.pane.Markdown(
+            "⚠️ No animation created. Please ensure images are available.",
+            styles={'font-size': "14px", 'color': "red"}
+        )
+        container = pn.Column(text)
+    else:
+        download_button = pn.widgets.FileDownload(
+            filename=file_name,
+            file=file,
+            button_type="primary",
+            label="Download Animation File",
+            width=340,
+        )
+
+        text = pn.pane.Markdown(
+            f"Animation successfully created as: </br>**{file_name}**.",
+            styles={'font-size': "14px", 'color': theme_settings['dark_font']}
+        )
+
+        container = pn.Column(text, download_button)
+
+    # Update modal window with download button
+    download_modal.clear()
+    download_modal.append(container)
+    modal_window.open = True 
 
 
 # Export modal components

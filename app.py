@@ -8,7 +8,7 @@ from components.info_comp import create_composite_info
 from components.info_proj import create_projection_info
 from components.img_player import create_img_player
 from components.info_intro import create_intro_info
-from components.modal import download_modal, modal_window, json_btn_fnc, movie_btn_fnc
+from components.modal import download_modal, modal_window, json_btn_fnc, movie_btn_fnc, animation_btn_fnc
 
 from data_prc import create_main_dict
 from data_get import get_data_files_goes, get_data_files_hima
@@ -71,7 +71,7 @@ sidebar[0][0][1].on_click(lambda event: clear_terminal(terminal))
 sidebar[1][3][4].on_click(lambda event: import_json_file(sidebar, loc_data, prd_data, prj_data, sat_data))
 sidebar[1][3][5].on_click(lambda event: json_btn_fnc(event, sidebar, loc_data, prd_data, prj_data, sat_data, terminal))
 sidebar[1][3][0].on_click(lambda event: movie_btn_fnc(event, terminal))
-sidebar[1][3][1].on_click(lambda event: create_animation_file(terminal))
+sidebar[1][3][1].on_click(lambda event: animation_btn_fnc(event, terminal))
 
 
 # Create the app and serve it

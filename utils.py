@@ -74,7 +74,6 @@ def create_animation_file(terminal):
     return file_name  # Return the video file path
 
 
-
 def clean_dt_values(dt_obj):
     """Cleans the datetime values for year, day, hour, and minute."""
     yr = dt_obj.year
@@ -98,6 +97,7 @@ def fix_dt_values(start_time, end_time):
 
 
 def get_composites(sat_data, value):
+    """Returns the composites for the selected satellite."""
     for item in sat_data:
         if item.get("id") == value:
             return [composite["name"] for composite in item.get("composites", [])]
@@ -126,6 +126,7 @@ def get_json_data(file_path):
     return data
 
 def export_json_file(terminal):
+    """Exports the JSON file with the current settings."""
     log_to_terminal(terminal, console_msg.export_json)
     processed_dict = convert_datetime(main_dict)
     file_name = f"{json_dir}/settings_export.json"
