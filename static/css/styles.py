@@ -92,6 +92,15 @@ select option:checked
     border-color: #ffffff !important;
 }}
 
+.xterm-viewport {{
+	width: 340px !important;
+	height: 150px !important;
+}}
+
+.xterm-screen {{
+	width: 320px !important;
+}}
+
 .bk-panel-models-markup-HTML {{
     width: 1500px !important!;
     max_width: 1500px !important;

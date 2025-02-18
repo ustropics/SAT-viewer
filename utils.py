@@ -13,14 +13,17 @@ def convert_datetime(obj):
     return obj
 
 
-def create_dirs(terminal):
-    """Creates the necessary directories for data storage."""
+async def create_dirs(terminal):
+    """Creates the necessary directories for data storage asynchronously."""
     dir_ls = [cache_dir, data_dir, img_dir, gif_dir, vid_dir, json_dir]
 
     log_to_terminal(terminal, console_msg.dir_create_msg)
+    
+    # Run directory creation in a non-blocking way using asyncio
     for directory in dir_ls:
         if not os.path.exists(directory):
-            os.makedirs(directory)
+            # Asynchronously create the directory
+            await asyncio.to_thread(os.makedirs, directory)
             log_to_terminal(terminal, console_msg.dir_created.format(directory=directory))
         else:
             log_to_terminal(terminal, console_msg.dir_exists.format(directory=directory))
