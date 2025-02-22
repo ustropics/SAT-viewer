@@ -17,7 +17,7 @@ from data_get import get_data_files_goes, get_data_files_hima
 from data_plt import create_product
 
 # Define allowed WebSocket origins
-public_ip = "satviewer.com"  # Use your domain
+public_ip = "satviewer.com"
 
 def get_page_user():
     # Initialize the Panel extension with proper settings
@@ -60,6 +60,8 @@ def get_page_user():
     prj_dropdown = sidebar[1][1][2]
     json_update = sidebar[1][3][3]
 
+    intro_panel = create_intro_info(sidebar, prd_data)
+
     # Attach the watch function to the dropdowns to track changes
     def update(event):
         update_main_frame(event, main_placeholder, sidebar, loc_data, prd_data, prj_data, sat_data)
@@ -91,7 +93,7 @@ def get_page_user():
 
     # Attach functions to the buttons
     sidebar[0][0][0].on_click(run_app)
-    sidebar[0][0][1].on_click(lambda event: clear_terminal(terminal))
+    sidebar[0][0][1].on_click(lambda event: clear_terminal(terminal, main_placeholder, intro_panel))
     sidebar[1][3][4].on_click(lambda event: import_json_file(sidebar, loc_data, prd_data, prj_data, sat_data))
     sidebar[1][3][5].on_click(lambda event: json_btn_fnc(event, sidebar, loc_data, prd_data, prj_data, sat_data, terminal))
     sidebar[1][3][0].on_click(lambda event: movie_btn_fnc(event, terminal))

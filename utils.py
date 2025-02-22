@@ -115,13 +115,14 @@ def log_to_terminal(terminal, message_template, **kwargs):
         terminal.write(f'\n{truncated_message}')
 
 
-def clear_terminal(terminal):
+def clear_terminal(terminal, placeholder, intro_panel):
     """Clears the terminal and logs a message."""
     if terminal:
         terminal.write('\nTerminal cleared...')
         terminal.clear()
 
     update_tooltip(0)
+    placeholder.object = intro_panel
 
 
 def get_json_data(file_path):
