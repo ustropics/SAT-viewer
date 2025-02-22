@@ -107,6 +107,28 @@ def animation_btn_fnc(event, terminal):
     download_modal.append(container)
     modal_window.open = True 
 
+# Function to handle a modal that pops up to let the user know it will take a few minutes to complete
+def process_msg_modal():
+    text = pn.pane.Markdown(
+        f"""
+        Your images are currently being processed. </br>
+        This process may take a few minutes to complete. </br></br>
+        A loading symbol in the top right corner will indicate when the process is finished.
+        Part of the application may not be responsive during this time.
+        """,
+        styles={
+            'font-size': "14px",
+            'color': theme_settings['dark_font'],
+        }
+    )
+
+    container = pn.Column(text)
+
+    # Update the modal window with the download button
+    download_modal.clear()
+    download_modal.append(container)
+    modal_window.open = True
+
 
 # Export modal components
 __all__ = ["download_modal", "modal_window", "json_btn_fnc"]

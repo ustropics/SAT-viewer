@@ -12,7 +12,7 @@ def create_intro_info(sidebar, prd_data):
 
     # Create the main title
     title = pn.pane.Markdown(
-        f'# Sat-Viewer (version 1.2)',
+        f'# SAT-Viewer (version 1.2)',
         styles={
             'text-align': "center",
             'background-color': theme_settings['primary_bg_color']
@@ -31,9 +31,9 @@ def create_intro_info(sidebar, prd_data):
     description = pn.pane.Markdown(
         f"""
         ## Creating High-Quality Satellite Imagery
-        Sat-Viewer is a web application designed for generating high-quality, true-resolution satellite imagery with advanced correction and processing options. It streamlines the workflow for handling satellite data, ensuring accurate, visually enhanced outputs.
+        SAT-Viewer is a web application designed for generating high-quality, true-resolution satellite imagery with advanced correction and processing options. It streamlines the workflow for handling satellite data, ensuring accurate, visually enhanced outputs.
         </br></br>
-        The platform automatically downloads the required band data for available composites, applies necessary corrections—including atmospheric and Rayleigh scattering adjustments—and can upsample specific bands to a true resolution of 500m per pixel. Sat-Viewer supports multiple satellite sensors and projection methods, making it a versatile tool for researchers, meteorologists, and remote sensing professionals.</br>
+        The platform automatically downloads the required band data for available composites, applies necessary corrections—including atmospheric and Rayleigh scattering adjustments—and can upsample specific bands to a true resolution of 500m per pixel. SAT-Viewer supports multiple satellite sensors and projection methods, making it a versatile tool for researchers, meteorologists, and remote sensing professionals.</br>
         """,
         styles={'font-size': "14px"},
         sizing_mode='scale_width'
@@ -61,7 +61,7 @@ def create_intro_info(sidebar, prd_data):
     version = pn.pane.Markdown(
         f"""
         ### Version 1.2
-        - Sat-Viewer is now accessible via dedicated server and DNS URL at http://satviewer.com
+        - SAT-Viewer is now accessible via dedicated server and DNS URL at http://satviewer.com
         - Added support for Himawari-8 and Himawari-9 satellite data
         - Added support for GOES-19 and GOES-17 satellite data
         - Integrated with NGINX server for improved data handling
@@ -111,7 +111,7 @@ def create_intro_info(sidebar, prd_data):
     additional_info = pn.pane.Markdown(
         f"""
         ### Additional Information
-        Sat-Viewer is optimized for performance and scalability, enabling easy custom composite creation. However, generating full-resolution RGB composites with corrections requires intensive processing, including advanced algorithms and resampling. As a result, rendering may take minutes per image.
+        SAT-Viewer is optimized for performance and scalability, enabling easy custom composite creation. However, generating full-resolution RGB composites with corrections requires intensive processing, including advanced algorithms and resampling. As a result, rendering may take minutes per image.
         """,
         styles={
             'font-size': "14px",

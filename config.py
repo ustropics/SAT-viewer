@@ -33,6 +33,9 @@ product_data = 'static/json/product_data.json'
 satellite_data = 'static/json/satellite_data.json'
 projection_data = 'static/json/projection_data.json'
 
+# Global variables
+show_tooltip = 0
+
 
 # Console messages
 console_msg = SimpleNamespace(

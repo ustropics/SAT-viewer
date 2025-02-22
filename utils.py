@@ -121,6 +121,8 @@ def clear_terminal(terminal):
         terminal.write('\nTerminal cleared...')
         terminal.clear()
 
+    update_tooltip(0)
+
 
 def get_json_data(file_path):
     """Reads the JSON data from the given file path."""
@@ -203,16 +205,20 @@ def update_main_frame(event, main_placeholder, sidebar, loc_data, prd_data, prj_
     sat_dropdown = sidebar[1][1][0]
     prj_dropdown = sidebar[1][1][2]
 
+    
     if event.obj is com_dropdown:
         from components.info_comp import create_composite_info
         composite_page = create_composite_info(event.new, loc_data, prd_data, sat_data, sidebar)
-        main_placeholder.update(composite_page)
+        
+        if show_tooltip == 0:
+            main_placeholder.update(composite_page)
         log_to_terminal(terminal, f"{event.new} composite selected...")
 
     elif event.obj is prj_dropdown:
         from components.info_proj import create_projection_info
         projection_page = create_projection_info(event.new, prj_data)
-        main_placeholder.update(projection_page)
+        if show_tooltip == 0:
+            main_placeholder.update(projection_page)
         log_to_terminal(terminal, f"{event.new} projection selected...")
 
     elif event.obj is loc_dropdown:
@@ -223,4 +229,8 @@ def update_main_frame(event, main_placeholder, sidebar, loc_data, prd_data, prj_
         composites = get_composites(sat_data, event.new)
         com_dropdown.options = composites
         com_dropdown.value = composites[0]
+
+def update_tooltip(value):
+    global show_tooltip
+    show_tooltip = value
 

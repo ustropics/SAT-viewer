@@ -9,7 +9,7 @@ from components.info_proj import create_projection_info
 from components.img_player import create_img_player
 from components.info_intro import create_intro_info
 from components.modal import (
-    download_modal, modal_window, json_btn_fnc, movie_btn_fnc, animation_btn_fnc
+    download_modal, modal_window, json_btn_fnc, movie_btn_fnc, animation_btn_fnc,process_msg_modal       
 )
 
 from data_prc import create_main_dict
@@ -73,6 +73,7 @@ def get_page_user():
     # Run main app functions
     def run_app(event):
         img_arr.clear()
+        process_msg_modal()
         create_dirs(terminal)
         create_main_dict(sidebar, loc_data, prd_data, prj_data, sat_data)
         backup_json_file(terminal)
@@ -83,8 +84,10 @@ def get_page_user():
             band_files = get_data_files_goes(terminal, sat_data)
 
         create_product(sidebar, terminal, band_files)
+        update_tooltip(1)
         img_player = create_img_player()
         main_placeholder.update(img_player)
+        
 
     # Attach functions to the buttons
     sidebar[0][0][0].on_click(run_app)
