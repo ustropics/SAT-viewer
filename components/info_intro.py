@@ -46,7 +46,7 @@ def create_intro_info(sidebar, prd_data):
         - <b>Rayleigh Correction</b>: Removes atmospheric scattering effects to improve image clarity
         - <b>Solar Zenith Angle Adjustment</b>: Accounts for sun angle variations to enhance brightness consistency
         - <b>Resolution Upsampling</b>: Merges lower-resolution bands with higher-resolution channels
-        - <b>Support for Multiple Sensors</b>: Compatible with GOES, Himawari, and other geostationary satellites
+        - <b>Support for Multiple Sensors</b>: Compatible with GOES and Himawari instruments (polar orbitting in pipeline)
         """,
         styles={
             'font-size': "14px",
