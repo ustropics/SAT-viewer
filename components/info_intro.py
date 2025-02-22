@@ -30,7 +30,7 @@ def create_intro_info(sidebar, prd_data):
     # Create the main description
     description = pn.pane.Markdown(
         f"""
-        ## Creating High-Quality Satellite Imagery
+        ## Creating High-Resolution Satellite Imagery
         SAT-Viewer is a web application designed for generating high-quality, true-resolution satellite imagery with advanced correction and processing options. It streamlines the workflow for handling satellite data, ensuring accurate, visually enhanced outputs.
         </br></br>
         The platform automatically downloads the required band data for available composites, applies necessary corrections—including atmospheric and Rayleigh scattering adjustments—and can upsample specific bands to a true resolution of 500m per pixel. SAT-Viewer supports multiple satellite sensors and projection methods, making it a versatile tool for researchers, meteorologists, and remote sensing professionals.</br>
