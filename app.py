@@ -19,14 +19,15 @@ from data_plt import create_product
 # Define allowed WebSocket origins
 public_ip = "satviewer.com"
 
-def get_page_user():
+# This is the main function that is launched by nginx as separate processes
+def create_app():
     # Initialize the Panel extension with proper settings
     pn.extension(
         'terminal', 'modal',
         **app_settings
     )
 
-        # Function to get the latest timestamps
+    # Function to get the latest timestamps
     def get_initial_datetimes():
         init_dt = datetime.now(timezone.utc).replace(second=0, microsecond=0)
         init_os = init_dt - timedelta(minutes=10)
@@ -38,7 +39,7 @@ def get_page_user():
         sidebar[1][0][0].value = init_os
         sidebar[1][0][1].value = init_dt
     
-
+    # Update the datetime values
     pn.state.onload(update_datetime) 
 
     # Load in the data files
@@ -60,12 +61,14 @@ def get_page_user():
     prj_dropdown = sidebar[1][1][2]
     json_update = sidebar[1][3][3]
 
+    # Create the intro panel
     intro_panel = create_intro_info(sidebar, prd_data)
 
-    # Attach the watch function to the dropdowns to track changes
+    # Update the main frame based on dropdown selections
     def update(event):
         update_main_frame(event, main_placeholder, sidebar, loc_data, prd_data, prj_data, sat_data)
 
+    # Create the watch functions for the dropdowns
     com_dropdown.param.watch(update, 'value')
     prj_dropdown.param.watch(update, 'value')
     loc_dropdown.param.watch(update, 'value')
@@ -107,4 +110,5 @@ def get_page_user():
         main=pn.Column(main_placeholder, modal_window),
         favicon="static/icon/favicon.ico"
     )
-get_page_user().servable()
+
+create_app().servable()
