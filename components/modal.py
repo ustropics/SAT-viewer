@@ -111,10 +111,11 @@ def animation_btn_fnc(event, terminal):
 def process_msg_modal():
     text = pn.pane.Markdown(
         f"""
-        Your images are currently being processed. </br>
-        This process may take a few minutes to complete. </br></br>
-        A loading symbol in the top right corner will indicate when the process is finished.
-        Part of the application may not be responsive during this time.
+Your images are currently being processed.<br />
+This operation may take a few minutes to complete.<br /><br />
+
+A loading indicator in the top right corner will signal when the process is finished.
+During this time, some parts of the application may be temporarily unresponsive.
         """,
         styles={
             'font-size': "14px",

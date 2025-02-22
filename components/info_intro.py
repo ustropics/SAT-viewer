@@ -79,11 +79,12 @@ def create_intro_info(sidebar, prd_data):
     quick_start = pn.pane.Markdown(
         f"""
         ### Quick Start
-        1. Select a satellite composite from the menu on the left.
-        2. Choose a time range using the start and end date pickers.
-        3. Select a location from the dropdown menu.
+        1. Select a satellite composite from the menu on the left
+        2. Choose a time range using the start and end date pickers
+        3. Select a location from the dropdown menu
         4. Just hit Run to generate the composite images!
-        5. After the images are generated, a media player will appear to view the images.
+        5. After the images are generated, a media player will appear
+        6. Options are available to export the composite as an mp4 or animated gif
         """,
         styles={
             'font-size': "14px",
@@ -95,11 +96,11 @@ def create_intro_info(sidebar, prd_data):
     custom_options = pn.pane.Markdown(
         f"""
         ### Customize your Product
-        - **Satellite**: Choose between GOES or Himawari instruments.
-        - **Location**: Make your own extent with lat/lon coordinates.
-        - **Projection**: Choose from various map projections.
-        - **Export**: Save your set options as a json file and import them later.
-        - **Media**: Save the generated composite as an mp4, animated image, or separate frames.
+        - **Satellite**: Choose between GOES or Himawari instruments
+        - **Location**: Make your own extent with lat/lon coordinates
+        - **Projection**: Choose from various map projections
+        - **Export**: Save your set options as a json file and import them later
+        - **Media**: Save the generated composite as an mp4, animated image, or separate frames
         """,
         styles={
             'font-size': "14px",
