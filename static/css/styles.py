@@ -92,14 +92,8 @@ select option:checked
     border-color: #ffffff !important;
 }}
 
-.xterm-viewport {{
-	width: 340px !important;
-	height: 150px !important;
-}}
 
-.xterm-screen {{
-	width: 320px !important;
-}}
+.xterm-helpers {{}}
 
 .bk-panel-models-markup-HTML {{
     width: 1500px !important!;

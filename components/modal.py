@@ -128,6 +128,9 @@ During this time, some parts of the application may be temporarily unresponsive.
     # Update the modal window with the download button
     download_modal.clear()
     download_modal.append(container)
+
+    modal_window.param.trigger('open')
+
     modal_window.open = True
 
 

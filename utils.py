@@ -13,20 +13,20 @@ def convert_datetime(obj):
     return obj
 
 
-async def create_dirs(terminal):
-    """Creates the necessary directories for data storage asynchronously."""
+def create_dirs(terminal):
+    """Creates the necessary directories for data storage synchronously."""
     dir_ls = [cache_dir, data_dir, img_dir, gif_dir, vid_dir, json_dir]
 
     log_to_terminal(terminal, console_msg.dir_create_msg)
-    
-    # Run directory creation in a non-blocking way using asyncio
+
+    # Create directories synchronously
     for directory in dir_ls:
         if not os.path.exists(directory):
-            # Asynchronously create the directory
-            await asyncio.to_thread(os.makedirs, directory)
+            os.makedirs(directory, exist_ok=True)  # Create directory if it doesn't exist
             log_to_terminal(terminal, console_msg.dir_created.format(directory=directory))
         else:
             log_to_terminal(terminal, console_msg.dir_exists.format(directory=directory))
+
 
 
 def create_movie_file(terminal):
@@ -147,7 +147,8 @@ def export_json_file(terminal):
     return file_name
 
 def backup_json_file(terminal):
-    log_to_terminal(terminal, console_msg.export_json)
+    """Backs up the JSON file with the current settings."""
+    log_to_terminal(terminal, "Backup JSON file was created...")
     processed_dict = convert_datetime(main_dict)
     file_name = f"{json_dir}/settings_backup.json"
     with open(file_name, 'w') as file:
@@ -199,14 +200,15 @@ def import_json_file(sidebar, loc_data, prd_data, prj_data, sat_data):
     sidebar[1][1][6][0].value = data['border_color']
     sidebar[1][1][6][1].value  = data['border_width']
 
+
 def update_main_frame(event, main_placeholder, sidebar, loc_data, prd_data, prj_data, sat_data):
+    """Updates the main frame based on the selected dropdown"""
     terminal = sidebar[0][1]
     com_dropdown = sidebar[1][0][2]
     loc_dropdown = sidebar[1][0][3]
     sat_dropdown = sidebar[1][1][0]
     prj_dropdown = sidebar[1][1][2]
 
-    
     if event.obj is com_dropdown:
         from components.info_comp import create_composite_info
         composite_page = create_composite_info(event.new, loc_data, prd_data, sat_data, sidebar)
@@ -231,7 +233,9 @@ def update_main_frame(event, main_placeholder, sidebar, loc_data, prd_data, prj_
         com_dropdown.options = composites
         com_dropdown.value = composites[0]
 
+
 def update_tooltip(value):
+    """Updates the global show_tooltip value."""
     global show_tooltip
     show_tooltip = value
 
