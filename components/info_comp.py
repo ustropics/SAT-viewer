@@ -84,8 +84,18 @@ def create_composite_info(value, loc_data, prd_data, sat_data, sidebar):
             sizing_mode='stretch_width'
         )
 
-    elif comp == 'colorized_ir_clouds':
+    elif comp in ['colorized_ir_clouds']:
         bands = pn.pane.JPG('static/image/b13.jpg')
+
+    elif comp in ['color_infrared']:
+        bands = pn.pane.Markdown(
+            f"""
+            
+            <br /><br />
+            This combination produces results similar to traditional color infrared aerial photography. The spectral reflectance is influenced by water and chlorophyll absorption in leaves, with needles appearing darker compared to broad leaves. Variations in vegetation shades are due to differences in type, health, leaf structure, and moisture content.
+            """,
+            styles={'font-size': "14px"},
+        )
 
     else:    
         bands = pn.pane.Markdown(

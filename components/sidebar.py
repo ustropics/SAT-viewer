@@ -32,6 +32,7 @@ def create_sidebar(loc_data, prd_data, prj_data, sat_data):
         f'{console_msg.program_init_msg}\n{console_msg.program_welcome_msg}',
         name='Terminal',
         height=150,
+        width=520,
         options=terminal_options
     )
         

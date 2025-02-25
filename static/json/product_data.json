@@ -78,6 +78,23 @@
         }
     },
     {
+        "id": "color_infrared",
+        "name": "Color Infrared Corrected",
+        "header": "Color Infrared Band Combination (Vegetation Highlight)",
+        "description": "Vegetation stands out in red, with healthier vegetation appearing more vibrant in this band combination. It's easier to distinguish different types of vegetation compared to a natural color image. This band combination is widely used in remote sensing for analyzing vegetation, crops, and wetlands. The result may look unusual, as green vegetation reflects infrared light strongly, making it appear brighter.<br /><br />This popular band combination is useful for analyzing vegetation, monitoring drainage, assessing different stages of crop growth, and identifying soil patterns. In general, deep red hues indicate broadleaf or healthier vegetation, while lighter reds represent sparsely vegetated areas or grasslands. Densely populated urban areas appear light blue.",
+        "corrections": ["rayleigh_corrected", "sunz_corrected", "aerosol_corrected", "upsampled_resolution"],
+        "operation_usage": "This band combination makes vegetation easily identifiable in the image, appearing in shades of red. Soils range from dark to light brown, while urban areas typically appear cyan blue, though they may also appear yellow or gray depending on their composition. Clouds, snow, and ice appear as light cyan or white. Hardwood trees tend to be lighter red compared to coniferous trees. Clear water appears dark blue, whereas turbid water takes on a cyan hue.",
+        "operation_limitation": "<b>Infrared vs surface air temperature:</b> 10.3 &#181;m brightness temperatures are not necessarily representative of 2-m shelter air temperatures, especially during the day, when the land can warm substantially compared to the near-surface air. Because there is some absorption of upwelling energy by atmospheric water vapor, the satellite-measured infrared brightness temperatures do not provide a truly accurate 'skin temperature.' A Baseline Product is available that provides the Land Surface Temperature.",
+        "resolution": 500,
+        "band_numbers": [1,2,3],
+        "mode": "IR",
+        "bands": {
+            "red": "Fill",
+            "green": "Fill",
+            "blue": "Fill"
+        }
+    },
+    {
         "id": "colorized_ir_clouds",
         "name": "Clean Longwave IR",
         "header": "Clean Longwave Infrared (IR) Imagery (AB Band 13)",

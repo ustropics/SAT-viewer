@@ -102,6 +102,12 @@ def create_app():
     sidebar[1][3][0].on_click(lambda event: movie_btn_fnc(event, terminal))
     sidebar[1][3][1].on_click(lambda event: animation_btn_fnc(event, terminal))
 
+    def resize_terminal():
+        terminal.sizing_mode = "fixed"
+        terminal.width = 320
+
+    pn.state.onload(resize_terminal)
+
     # Create the app layout
     return pn.template.MaterialTemplate(
         site="",

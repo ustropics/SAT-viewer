@@ -31,6 +31,11 @@
         "id": "colorized_ir_clouds",
         "name": "Clean Longwave IR",
         "bands": [13]
+        },
+        {
+        "id": "color_infrared",
+        "name": "Clean Longwave IR",
+        "bands": [1,2,3]
         }
     ],
     "bands": [

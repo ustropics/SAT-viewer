@@ -26,6 +26,7 @@ theme_settings = {
 
 # Define the CSS styles for the app
 css = f"""
+
 p {{
     margin-block-start: 0em !important;
     margin-block-end: 0em !important;
@@ -58,14 +59,24 @@ label[for="input"] {{
     color: {theme_settings['dark_font']} !important;
 }}
 
-select option:focus, 
-select option:active, 
+select option:focus,
+select option:active,
 select option:checked
 {{
-    background: linear-gradient({theme_settings['secondary_color']},{theme_settings['secondary_color']});
+    background: linear-gradient({theme_settings['secondary_bg_color']},{theme_settings['primary_color']});
     background-color: {theme_settings['secondary_color']} !important;
-    color: {theme_settings['dark_font']} !important;
+    color: {theme_settings['light_font']} !important;
     text-shadow: none !important;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}}
+
+
+select {{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }}
 
 :host, :root {{
@@ -97,15 +108,14 @@ select option:checked
 	height: 150px !important;
 }}
 
+.xterm-helper-textarea {{
+    width: 340px !important;
+    left: 0px !important;
+}}
+
 .xterm-screen {{
 	width: 320px !important;
 }}
-
-.xterm-helpers {{
-    
-}}
-
-.xterm-helpers {{}}
 
 .bk-panel-models-markup-HTML {{
     width: 1500px !important!;
@@ -175,7 +185,7 @@ select option:checked
 
 .terminal-container {{
     padding-top: 10px;
-    max-width: 330px;
+    max-width: 330px !important;
     box-sizing: border-box;
     scrollbar-color: {theme_settings['secondary_color']} {theme_settings['primary_color']};
     }}

@@ -1,36 +1,34 @@
-import asyncio
 import subprocess
+import time
 
-# Define a range of ports for multiple Panel instances
-ports = [5006, 5007, 5008]  # Add more ports as needed
-public_ip = "satviewer.com"  # Use your domain
+# List of ports to run the servers on
+ports = [5006, 5007, 5008]
 
-async def launch_panel_server(port):
-    """Launches a Panel server on the specified port."""
-    cmd = [
-        "panel", "serve", "app.py",
-        "--address", "0.0.0.0",
-        "--port", str(port),
-        "--allow-websocket-origin", f"{public_ip}",
-        "--allow-websocket-origin", f"{public_ip}:80"
-    ]
-    process = await asyncio.create_subprocess_exec(*cmd)
-    return process
+# Function to start the Panel servers on specific ports
+def start_panel_servers():
+    processes = []
+    for port in ports:
+        # Build the command to run the Panel server on a specific port
+        command = [
+            "panel", "serve", "app.py", 
+            "--address", "0.0.0.0", 
+            "--port", str(port), 
+            "--allow-websocket-origin", f"satviewer.com:{port}",
+            "--allow-websocket-origin", f"localhost:{port}"
+        ]
+        
+        # Start the server process
+        process = subprocess.Popen(command)
+        processes.append(process)
+        print(f"Started Panel server on port {port}")
+        
+        # Giving some time before starting the next server
+        time.sleep(2)
 
-async def main():
-    """Launches multiple Panel servers asynchronously."""
-    tasks = [launch_panel_server(port) for port in ports]
-    processes = await asyncio.gather(*tasks, return_exceptions=True)
+    # Wait for all processes to complete
+    for process in processes:
+        process.wait()
 
-    # Keep the event loop running
-    try:
-        while True:
-            await asyncio.sleep(1)
-    except KeyboardInterrupt:
-        print("Stopping Panel servers...")
-        for process in processes:
-            process.terminate()
-        await asyncio.gather(*(p.wait() for p in processes))
-
+# Start the Panel servers
 if __name__ == "__main__":
-    asyncio.run(main())
+    start_panel_servers()
