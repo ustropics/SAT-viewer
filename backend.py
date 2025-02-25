@@ -4,14 +4,16 @@ import random
 import requests
 from flask_reverse_proxy import ReverseProxied
 from concurrent.futures import ThreadPoolExecutor
+from gevent.pywsgi import WSGIServer
+from geventwebsocket.handler import WebSocketHandler
 
 app = Flask(__name__)
 sockets = Sockets(app)
 
 bokeh_servers = [
-    "http://satviewer.com:5006",
-    "http://satviewer.com:5007",
-    "http://satviewer.com:5008"
+    "https://satviewer.com:5006",
+    "https://satviewer.com:5007",
+    "https://satviewer.com:5008"
 ]
 
 app.wsgi_app = ReverseProxied(app.wsgi_app)
@@ -19,7 +21,7 @@ app.wsgi_app = ReverseProxied(app.wsgi_app)
 # Function to check a server's availability
 def check_server(server):
     try:
-        response = requests.get(f"{server}/app", timeout=2)
+        response = requests.get(f"{server}/app", timeout=2, verify=False)  # Ignore SSL verification for self-signed certs
         if response.status_code == 200:
             return server
     except requests.exceptions.RequestException:
@@ -56,7 +58,8 @@ def proxy(path):
         headers=request.headers,
         data=request.get_data(),
         cookies=request.cookies,
-        allow_redirects=False
+        allow_redirects=False,
+        verify=False  # Ignore SSL verification for self-signed certs
     )
 
     return (response.content, response.status_code, response.headers.items())
@@ -71,7 +74,7 @@ def websocket(ws):
 
     chosen_server = random.choice(available_servers)
 
-    bokeh_ws_url = f"ws://{chosen_server.split('//')[1]}/ws"
+    bokeh_ws_url = f"wss://{chosen_server.split('//')[1]}/ws"
 
     with websocket.WebSocketClient(bokeh_ws_url) as client_ws:
         while not ws.closed:
@@ -82,10 +85,7 @@ def websocket(ws):
             if response:
                 ws.send(response)
 
-# Start the Flask app with gevent's WSGI server
+# Start the Flask app with SSL
 if __name__ == '__main__':
-    from gevent.pywsgi import WSGIServer
-    from geventwebsocket.handler import WebSocketHandler
-
-    http_server = WSGIServer(('0.0.0.0', 80), app, handler_class=WebSocketHandler)
+    http_server = WSGIServer(('0.0.0.0', 443), app, handler_class=WebSocketHandler, keyfile="private.key", certfile="certificate.crt")
     http_server.serve_forever()

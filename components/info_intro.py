@@ -70,8 +70,10 @@ def create_intro_info(sidebar, prd_data):
         styles={
             'font-size': "14px",
             'padding': '10px',
-            'background-color': theme_settings['warning_bg_color']
-            },
+            'background-color': theme_settings['warning_bg_color'],
+            'max-height': '200px',  # Set a specific height
+            'overflow': 'auto'  # Enable scrollbars when content exceeds max height
+        },
         sizing_mode='scale_width'
     )
 

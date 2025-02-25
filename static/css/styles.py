@@ -1,20 +1,24 @@
 # Define the default theme settings for the app
 theme_settings = {
-    'primary_color': '#782f40',
+    'primary_color': '#0d5175',
     'secondary_color': '#CEB888',
 
-    'primary_hl_color': '#b80b0e',
-    'secondary_hl_color': '#FFD700',
+    'primary_hl_color': '#176a96',
+    'secondary_hl_color': '#edd5a1',
+
+    "primary_ll_color": "#0a3c5c",
+    "secondary_ll_color": "#ab976d",
 
     'primary_bg_color': '#212529',
     'secondary_bg_color': '#343c43',
+    
     'success_bg_color': '#428a4d',
-    'warning_bg_color': '#8a4242',
+    'warning_bg_color': '#0a3c5c',
 
     'primary_low_color': '#3b121c',
     'secondary_low_color': '#54421c',
 
-    'light_font': '#f8f9fa',
+    'light_font': '#ffffff',
     'dark_font': '#2C2A29',
 
     'red_band_color': '#ff5733',
@@ -41,9 +45,14 @@ h1,h2,h3 {{
     margin_block_end: 0em !important;
 }}
 
+h1 {{
+    color: {theme_settings['secondary_color']} !important;
+}}
+
 input[type="color"] {{
     margin-top: -10px;
 }}
+
 
 label[for="input"] {{
     background-color: {theme_settings['primary_bg_color']} !important;
@@ -63,13 +72,17 @@ select option:focus,
 select option:active,
 select option:checked
 {{
-    background: linear-gradient({theme_settings['secondary_bg_color']},{theme_settings['primary_color']});
+    background: linear-gradient({theme_settings['primary_color']},{theme_settings['primary_color']});
     background-color: {theme_settings['secondary_color']} !important;
     color: {theme_settings['light_font']} !important;
     text-shadow: none !important;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+}}
+
+select option:hover {{
+    background-color: {theme_settings['primary_ll_color']} !important;
 }}
 
 
@@ -128,7 +141,7 @@ select {{
 }}
 
 .mdc-top-app-bar {{
-    background-color: {theme_settings['primary_color']} !important;
+    background: linear-gradient(to right, { theme_settings['primary_color'] }, { theme_settings['primary_ll_color'] }) !important;
 }}
 
 .bk-btn-primary {{
@@ -139,7 +152,7 @@ select {{
 }}
 
 .bk-btn-primary:hover {{
-    background-color: {theme_settings['secondary_hl_color']} !important;
+    background-color: {theme_settings['secondary_ll_color']} !important;
     color: {theme_settings['dark_font']} !important;
     border: none;
     cursor: pointer;
@@ -147,14 +160,14 @@ select {{
 
 .bk-btn-success {{
     background-color: {theme_settings['primary_color']} !important;
-    color: {theme_settings['light_font']} !important;
+    color: #ffffff !important;
     border: none;
     cursor: pointer;
 }}
 
 .bk-btn-success:hover {{
-    background-color: {theme_settings['primary_hl_color']} !important;
-    color: {theme_settings['light_font']} !important;
+    background-color: {theme_settings['primary_ll_color']} !important;
+    color: #ffffff !important;
     border: none;
     cursor: pointer;
 }}
@@ -171,6 +184,14 @@ select {{
 
 .bk-tab {{
     padding-top: 20px !important;
+    color: {theme_settings['light_font']} !important;
+    border-color: #ffffff !important;
+}}
+
+.bk-tab:hover {{
+    padding-top: 20px !important;
+    color: {theme_settings['secondary_hl_color']} !important;
+    border-color: #ffffff !important;
 }}
 
 .bk-tab.bk-active {{
@@ -185,17 +206,35 @@ select {{
 
 .terminal-container {{
     padding-top: 10px;
-    max-width: 330px !important;
+    max-width: 320px !important;
     box-sizing: border-box;
     scrollbar-color: {theme_settings['secondary_color']} {theme_settings['primary_color']};
     }}
+
+::-webkit-scrollbar {{
+    width: 12px;  /* Width for vertical scrollbars */
+    height: 12px; /* Height for horizontal scrollbars */
+}}
+
+::-webkit-scrollbar-track {{
+    background-color: {theme_settings['primary_bg_color']} !important;
+    border-radius: 10px;
+}}
+
+::-webkit-scrollbar-thumb {{
+    background-color: {theme_settings['primary_color']} !important;
+    border-radius: 10px;
+    border: 1px solid {theme_settings['primary_hl_color']};  /* Adds space around the thumb */
+}}
+
 """
 
 # Define the terminal options for the app
 terminal_options = {
     "theme": {
         "background": '#343c43',
-        "foreground": '#FFD700',
+        "foreground": theme_settings['secondary_color'],
     },
-    "fontSize": 11
+    "fontSize": 11,
+    "fontFamily": "Courier New, monospace"  # Change this to your desired font
 }

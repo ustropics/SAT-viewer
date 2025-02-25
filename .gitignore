@@ -2,3 +2,7 @@ media/
 data/
 cache/
 *.ipynb
+*.crt
+*.pem
+*.key
+*.csr
