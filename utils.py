@@ -1,7 +1,6 @@
 from imports import *
 from config import *
 
-
 def convert_datetime(obj):
     """Converts the datetime object to a string."""
     if isinstance(obj, dict):
@@ -86,6 +85,22 @@ def clean_dt_values(dt_obj):
     return yr, dy, hr, mn
 
 
+def extract_nc_files(zip_filepath, extract_to):
+    """
+    Extracts all .nc files from the specified zip archive to the given directory.
+    """
+
+    with zipfile.ZipFile(zip_filepath, 'r') as zip_ref:
+        # List all files in the zip archive
+        all_files = zip_ref.namelist()
+        # Filter out .nc files
+        nc_files = [f for f in all_files if f.endswith('.nc')]
+        # Extract each .nc file
+        for nc_file in nc_files:
+            zip_ref.extract(nc_file, extract_to)
+            print(f"Extracted {nc_file} to {extract_to}")
+
+
 def fix_dt_values(start_time, end_time):
     """Fixes the datetime values for the start and end times."""
     current_time = datetime.now(timezone.utc)
@@ -115,7 +130,7 @@ def log_to_terminal(terminal, message_template, **kwargs):
         terminal.write(f'\n{truncated_message}')
 
 
-def clear_terminal(terminal, placeholder, intro_panel):
+def clear_terminal(terminal, placeholder, header_container, intro_panel):
     """Clears the terminal and logs a message."""
     if terminal:
         terminal.write('\nTerminal cleared...')
@@ -123,6 +138,7 @@ def clear_terminal(terminal, placeholder, intro_panel):
 
     update_tooltip(0)
     placeholder.object = intro_panel
+    header_container.object = None
 
 
 def get_json_data(file_path):

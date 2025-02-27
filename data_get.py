@@ -1,6 +1,7 @@
 from imports import *
 from config import *
 from utils import *
+from static.certs import keys
 
 def get_required_band_numbers(sat_data):
     composite = main_dict['composite']
@@ -208,3 +209,76 @@ def get_data_files_hima(terminal, sat_data):
     print('Download complete.')
     print('Directories created:', directories)
     return directories
+
+def get_data_files_mtl1(terminal, sat_data):
+    """Get data files for MTI-1 satellite."""
+
+    credentials = (keys.consumer_key, keys.consumer_secret)
+
+    # start_time = '2025-02-22T22:30:00'
+    # end_time = '2025-02-22T22:50:00'
+    start_time = round_dt_minute(main_dict['start_time']) - timedelta(minutes=10)
+    end_time = round_dt_minute(main_dict['end_time'])
+
+    start_time = start_time.strftime('%Y-%m-%dT%H:%M:%S')
+    end_time = end_time.strftime('%Y-%m-%dT%H:%M:%S')
+
+    # Authenticate
+    token = eumdac.AccessToken(credentials)
+    # print(f"This token '{token}' expires {token.expiration}")
+
+    # Connect to the datastore
+    datastore = eumdac.DataStore(token)
+    sub_dirs = []  # Initialize an empty list to store sub_dir values
+
+    # Perform search
+    search_results = list(datastore.opensearch(f"pi=EO:EUM:DAT:0665&dtstart={start_time}&dtend={end_time}"))
+    search_results_hd = list(datastore.opensearch(f"pi=EO:EUM:DAT:0662&dtstart={start_time}&dtend={end_time}"))
+    
+    all_results = search_results + search_results_hd
+    
+    # Check if there are results
+    if not all_results:
+        print("No results found for the given time range.")
+    else:
+        print(f"Found {len(all_results)} results.")
+
+        # Loop through search results and download each file
+        for product in all_results:
+            print(f"Processing: {product}")
+            print(dir(product))
+
+            satellite = product.satellite
+            timestamp = product.sensing_end
+
+            formatted_time = timestamp.strftime("%Y%m%d%H%M")
+            sub_dir = f'data/{satellite}/{formatted_time}'
+
+            # Create the sub_dir if it doesn't exist
+            os.makedirs(sub_dir, exist_ok=True)
+
+            # Append the sub_dir to the list
+            sub_dirs.append(sub_dir)
+
+            # Extract filename from URL and clean it
+            url_filename = os.path.basename(product.url)  # Use product.location instead of product.url
+            local_filename = urllib.parse.unquote(url_filename.split("?")[0])  # Decode and remove query params
+
+            local_filename += ".zip"  # Add .zip extension   
+            local_filepath = os.path.join(sub_dir, local_filename)  # Save file in sub_dir
+
+            # Check if file already exists
+            if os.path.exists(local_filepath):
+                print(f"File already exists: {local_filepath}, skipping download.")
+                extract_nc_files(local_filepath, sub_dir)
+                continue  # Skip downloading if file exists
+
+            # Open product for download
+            with product.open() as remote_file:
+                with open(local_filepath, 'wb') as local_file:
+                    shutil.copyfileobj(remote_file, local_file)
+
+            print(f"Downloaded {local_filepath}")
+            extract_nc_files(local_filepath, sub_dir)
+
+    return sub_dirs  # Return the list of sub_dirs

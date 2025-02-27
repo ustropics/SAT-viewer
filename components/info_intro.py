@@ -12,7 +12,7 @@ def create_intro_info(sidebar, prd_data):
 
     # Create the main title
     title = pn.pane.Markdown(
-        f'# SAT-Viewer (version 1.2)',
+        f'# SAT-Viewer (version {sat_version})',
         styles={
             'text-align': "center",
             'background-color': theme_settings['primary_bg_color']
@@ -60,18 +60,39 @@ def create_intro_info(sidebar, prd_data):
     # Create the version information
     version = pn.pane.Markdown(
         f"""
-        ### Version 1.2
-        - SAT-Viewer is now accessible via dedicated server and DNS URL at http://satviewer.com
-        - Added support for Himawari-8 and Himawari-9 satellite data
-        - Added support for GOES-19 and GOES-17 satellite data
-        - Integrated with NGINX server for improved data handling
-        - Ability to export settings as a JSON file for later use
+        ### Version 0.5
+        - SAT-Viewer is now accessible via dedicated server and DNS URL at https://satviewer.com
+        - Updated styling and placement of Image Player to maximize image space
+        - Satellite: Added support for METEOSAT-12 (*currently at 1k resolution)
+        ### Version 0.4
+        - Satellite: Added support for Himawari-8 and Himawari-9 satellite data
+        - Satellite: Added support for GOES-19 and GOES-17 satellite data
+        - Composite: Color Infrared added 
+        - Backend: Integrated with flask and bokeh server for improved data handling
+        - Feature: Video creation and animated .webp implemented
+        - Feature: Modals are now implemented to streamline user input
+        ### Version 0.3
+        - Included landing page for program initialization
+        - Included info panels for composites and projections
+        - Composite: Longwave IR and Different WV added
+        - Projection: Lambert Azimuthal Equal Area, Lambert Conformal Conic included
+        - Feature: Ability to export settings as a JSON file for later use
+        ### Version 0.2.1
+        - Dependency for goes2go to manage file downloads removed
+        - Media player and image management system created
+        - Composite: CIMSS True Color Corrected, JMA True Color, and JMA True Color Corrected added 
+        - Projection: Equal Area Cylindrical, Geostationary, and Transverse Mercator added
+        ### Version 0.2
+        - Transitioned web application backend to dask client
+        - Integrated frontend of web application with Holoviz Panel
+        - Integration with Satpy and Pyspectral established
+        - Logic for Matplotlib and image creation implemented
         """,
         styles={
             'font-size': "14px",
             'padding': '10px',
             'background-color': theme_settings['warning_bg_color'],
-            'max-height': '200px',  # Set a specific height
+            'max-height': '180px',  # Set a specific height
             'overflow': 'auto'  # Enable scrollbars when content exceeds max height
         },
         sizing_mode='scale_width'

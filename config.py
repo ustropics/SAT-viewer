@@ -26,6 +26,8 @@ vid_dir = 'media/vid/'
 json_dir = 'media/json/'
 main_dict = {}
 img_arr = []
+dt_arr = []
+sat_version = '0.5'
 
 # Data file locations
 location_data = 'static/json/location_data.json'
@@ -56,7 +58,7 @@ console_msg = SimpleNamespace(
     file_total = 'Total files downloaded: {files}',
     img_file_exists = 'Image file exists...',
     program_init_msg = '🌎  Program initialized...',
-    program_welcome_msg = 'Welcome to SAT-viewer v1.2!',
+    program_welcome_msg = f'Welcome to SAT-viewer v{sat_version}!',
     product_create_msg = '\n📊  Creating product:',
     product_recipe = 'Composite: {recipe}',
     projection_recipe = 'Projection: {projection}',

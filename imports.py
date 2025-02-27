@@ -3,6 +3,7 @@ import aiofiles
 import bz2
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
+import eumdac
 import hashlib
 import imageio
 import io
@@ -10,10 +11,13 @@ import json
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+import urllib.parse
 import pandas as pd
 import panel as pn
+import shutil
 import s3fs
 import xarray as xr
+import zipfile
 
 from bokeh.models import CustomJS
 from collections import defaultdict

@@ -41,7 +41,7 @@ def create_product(sidebar, terminal, band_files):
     )
 
     # Dynamically determine the number of files to process
-    if bucket == 'noaa-himawari9':
+    if bucket == 'noaa-himawari9' or bucket == 'mti1':
         num_files = len(band_files)    
     else:
         num_files = len(next(iter(band_files.values())))
@@ -56,7 +56,16 @@ def create_product(sidebar, terminal, band_files):
             format_time = datetime.strptime(format_item, '%Y%m%d%H%M')
             time_coverage_end = format_time.strftime('%Y-%m-%dT%H:%M:%S') + '.6Z'
             print(time_coverage_end)
+        elif bucket == 'mti1':
+            scn_ls = glob(f'{band_files[i]}/*.nc')
+            format_item = band_files[i].split('/')[-1].split('_')[0]
+            format_time = datetime.strptime(format_item, '%Y%m%d%H%M')
+            time_coverage_end = format_time.strftime('%Y-%m-%dT%H:%M:%S') + '.6Z'
+            print(time_coverage_end)
         else:
+            print(f"band_files: {band_files}")
+            print(f"band_ids: {band_ids}")
+            print(f"indices: {[i for band_id in band_ids]}")
             scn_ls = [band_files[band_id][i] for band_id in band_ids]
             file_path = band_files[band_ids[0]][i]  # Use the first band to get the file path
             nc_file = xr.open_dataset(file_path, engine='netcdf4')
@@ -72,18 +81,30 @@ def create_product(sidebar, terminal, band_files):
         file_name = f'{img_dir}/{hash_name}.webp'
         img_arr.append(file_name)
 
+        scn.load([recipe])
+        if main_dict['location'] == 'CONUS' or main_dict['location'] == 'GLOBAL':
+            new_scn = scn.resample(scn.max_area(), resampler='native')
+        else:
+            new_scn = scn.resample(area_def, resampler='nearest', cache_dir=cache_dir)
+
+
         if os.path.exists(file_name):
             log_to_terminal(terminal, console_msg.img_file_exists)
+            scan_time = new_scn[recipe].attrs['end_time'].strftime("%b %d, %Y at %H:%M:%S")
+            dt_time = new_scn[recipe].attrs['end_time'].strftime("%H:%M")
+            dt_arr.append(dt_time)
             continue
         else:
             scn.load([recipe])
+            scan_time = new_scn[recipe].attrs['end_time'].strftime("%b %d, %Y at %H:%M:%S")
+            dt_time = new_scn[recipe].attrs['end_time'].strftime("%H:%M")
+            dt_arr.append(dt_time)
             if main_dict['location'] == 'CONUS' or main_dict['location'] == 'GLOBAL':
                 new_scn = scn.resample(scn.min_area(), resampler='native')
             else:
                 new_scn = scn.resample(area_def, resampler='nearest', cache_dir=cache_dir)
 
             scan_time = new_scn[recipe].attrs['end_time'].strftime("%b %d, %Y at %H:%M:%S")
-            print("scane time", scan_time)
             sat_name = main_dict['satellite']
 
             area = new_scn[recipe].attrs['area']

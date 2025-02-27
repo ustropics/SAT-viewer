@@ -64,6 +64,44 @@ label[for="input"] {{
     padding-top: -10px;
 }}
 
+input[type="range"] {{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: {theme_settings['primary_bg_color']};
+}}
+
+input[type="range"]:active {{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: {theme_settings['primary_bg_color']};
+}}
+
+
+/* Style the thumb in WebKit browsers */
+input[type="range"]::-webkit-slider-thumb {{
+  -webkit-appearance: none;
+  height: 20px;             /* Adjust the size as needed */
+  width: 20px;
+  border-radius: 50%;       /* This makes it a circle */
+  background: {theme_settings['secondary_color']};      /* Change the color or add a background image */
+  border: 1px solid #000;   /* Optional: add a border */
+  cursor: pointer;
+  margin-top: -8px;         /* Align it with the track */
+}}
+
+input[type="range"]::-moz-range-thumb {{
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid #000;
+  cursor: pointer;
+}}
+
 #operations-usage ~ p{{
     color: {theme_settings['dark_font']} !important;
 }}
@@ -208,7 +246,7 @@ select {{
     padding-top: 10px;
     max-width: 320px !important;
     box-sizing: border-box;
-    scrollbar-color: {theme_settings['secondary_color']} {theme_settings['primary_color']};
+    scrollbar-color: {theme_settings['primary_hl_color']} {theme_settings['primary_color']};
     }}
 
 ::-webkit-scrollbar {{
@@ -225,6 +263,20 @@ select {{
     background-color: {theme_settings['primary_color']} !important;
     border-radius: 10px;
     border: 1px solid {theme_settings['primary_hl_color']};  /* Adds space around the thumb */
+}}
+
+.slower, .first, .previous, .reverse, .pause, .play, .next, .last, .faster {{
+    background-color: {theme_settings['secondary_color']} !important;
+    color: {theme_settings['dark_font']} !important;
+    border-radius: 10px !important;  /* Adjust radius as needed */
+    border: 2px solid {theme_settings['primary_color']} !important;
+}}
+
+.slower:hover, .first:hover, .previous:hover, .reverse:hover, .pause:hover, .play:hover, .next:hover, .last:hover, .faster:hover {{
+    background-color: {theme_settings['secondary_ll_color']} !important;
+    color: {theme_settings['dark_font']} !important;
+    border-radius: 10px !important;  /* Adjust radius as needed */
+    border: 2px solid {theme_settings['primary_color']} !important;
 }}
 
 """

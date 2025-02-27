@@ -1,8 +1,10 @@
 media/
 data/
 cache/
+static/certs/
 *.ipynb
 *.crt
 *.pem
 *.key
 *.csr
+keys.py
