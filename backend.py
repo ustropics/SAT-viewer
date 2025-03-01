@@ -87,5 +87,5 @@ def websocket(ws):
 
 # Start the Flask app with SSL
 if __name__ == '__main__':
-    http_server = WSGIServer(('0.0.0.0', 443), app, handler_class=WebSocketHandler, keyfile="private.key", certfile="certificate.crt")
+    http_server = WSGIServer(('0.0.0.0', 443), app, handler_class=WebSocketHandler, keyfile="static/certs/private.key", certfile="static/certs/certificate.crt")
     http_server.serve_forever()

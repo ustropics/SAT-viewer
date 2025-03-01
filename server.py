@@ -15,8 +15,8 @@ def start_panel_servers():
             "--port", str(port), 
             "--allow-websocket-origin", f"satviewer.com:{port}",
             "--allow-websocket-origin", f"localhost:{port}",
-            "--ssl-certfile", "certificate.crt",
-            "--ssl-keyfile", "private.key"
+            "--ssl-certfile", "static/certs/certificate.crt",
+            "--ssl-keyfile", "static/certs/private.key"
         ]
         
         # Start the server process
