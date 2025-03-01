@@ -83,7 +83,7 @@ def create_product(sidebar, terminal, band_files):
 
         scn.load([recipe])
         if main_dict['location'] == 'CONUS' or main_dict['location'] == 'GLOBAL':
-            new_scn = scn.resample(scn.max_area(), resampler='native')
+            new_scn = scn.resample(scn.min_area(), resampler='native')
         else:
             new_scn = scn.resample(area_def, resampler='nearest', cache_dir=cache_dir)
 
