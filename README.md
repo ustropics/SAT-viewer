@@ -1,1 +1,1 @@
-Visit [https://satviewer.com](https://satviewer.com) for relevant information.
+Webapp available at - https://satviewer.com
